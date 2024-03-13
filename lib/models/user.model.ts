@@ -4,9 +4,11 @@ export interface IUser extends Document {
   email: string;
   password?: string;
   name: string;
+  userName?: string;
   emailVerified: boolean;
   profilePictureUrl?: string;
   role: "user" | "admin";
+  bio?: string;
 }
 const userSchema = new Schema<IUser>(
   {
@@ -17,6 +19,10 @@ const userSchema = new Schema<IUser>(
     },
     name: {
       type: String,
+    },
+    userName: {
+      type: String,
+      unique: true,
     },
     password: {
       type: String,
@@ -34,6 +40,10 @@ const userSchema = new Schema<IUser>(
       type: String,
       enum: ["user", "admin"],
       default: "user",
+    },
+
+    bio: {
+      type: String,
     },
   },
   { timestamps: true }

@@ -21,7 +21,6 @@ import { getUserByEmail } from "@/utils/data/user";
 import { generateCodeVerifier, generateState } from "arctic";
 import { github, google } from "@/lib/oauth";
 import { getPasswordResetTokenByToken } from "@/utils/data/password-reset-token";
-import db from "@/lib/db";
 import { PasswordResetToken } from "@/lib/models/password-reset-token.model";
 
 export const signUp = async (values: z.infer<typeof SignUpSchema>) => {

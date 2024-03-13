@@ -13,11 +13,10 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import LogoutButton from "./LogoutButton";
+import { getCurrentUserData } from "@/actions/user.action";
 
 const ProfileButton = async () => {
-  const { user } = await auth();
-  const userInfo = await User.findById(user?.id);
-
+  const userInfo = await getCurrentUserData();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

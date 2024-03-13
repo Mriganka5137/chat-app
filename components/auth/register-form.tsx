@@ -20,12 +20,6 @@ import { useRouter } from "next/navigation";
 import { signUp } from "@/actions/auth.action";
 import { FromError } from "./form-error";
 import { FormSuccess } from "./form-success";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-} from "../ui/input-otp";
 
 export const RegisterForm = () => {
   const router = useRouter();
@@ -91,6 +85,7 @@ export const RegisterForm = () => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="email"
