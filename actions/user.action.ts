@@ -11,7 +11,7 @@ export const getCurrentUserData = async () => {
     }
 
     const userData = await User.findById(user?.id);
-    return JSON.parse(JSON.stringify(userData));
+    return userData;
   } catch (error: any) {
     return { error: error.message };
   }

@@ -8,7 +8,7 @@ interface AuthLayoutProps {
 const AuthLayout = async ({ children }: AuthLayoutProps) => {
   const { session } = await auth();
   if (session) {
-    return redirect("/dashboard");
+    return redirect("/");
   }
   return (
     <div className=" h-full w-full bg-gradient flex justify-center items-center">

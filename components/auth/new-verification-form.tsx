@@ -37,7 +37,7 @@ const NewVerificationForm = () => {
   }, []);
 
   if (success) {
-    router.push("/dashboard");
+    router.push("");
   }
 
   return (

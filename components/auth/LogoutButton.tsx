@@ -6,11 +6,11 @@ import { IoIosLogOut } from "react-icons/io";
 const LogoutButton = () => {
   return (
     <Button
-      variant="ghost"
+      variant="secondary"
       onClick={() => {
         signOut();
       }}
-      className="flex items-center gap-2 w-full justify-start p-0 h-fit text-xs text-secondary-foreground/50 cursor-pointer font-normal"
+      className="flex items-center gap-2 w-full"
     >
       <IoIosLogOut className="size-4" />
       Logout

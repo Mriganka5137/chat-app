@@ -46,7 +46,7 @@ export const NewPasswordForm = () => {
           form.reset();
           if (data?.success) {
             setSuccess(data?.success);
-            return router.push("/dashboard");
+            return router.push("/");
           }
           setError(data?.error);
         })
