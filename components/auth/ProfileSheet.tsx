@@ -42,12 +42,12 @@ const ProfileSheet = async () => {
           <ProfilePicUploader profilePictureUrl={userInfo.profilePictureUrl} />
           <div className=" space-y-5">
             <div>
-              <span className="text-xs text-card-foreground/80">Name</span>
+              <span className="text-xs text-primary">Name</span>
               <h3 className="text-sm font-bold capitalize">{userInfo.name}</h3>
             </div>
             <div>
-              <span className="text-xs text-card-foreground/80">Email</span>
-              <p className="text-sm text-primary ">{userInfo.email}</p>
+              <span className="text-xs text-primary">Email</span>
+              <p className="text-sm  ">{userInfo.email}</p>
             </div>
             <div>
               <span className="text-xs text-card-foreground/80">Id</span>
@@ -55,7 +55,7 @@ const ProfileSheet = async () => {
             </div>
 
             <div>
-              <span className="text-xs text-card-foreground/80">Bio</span>
+              <span className="text-xs text-primary">Bio</span>
               {userInfo.bio ? (
                 <p>{userInfo.bio}</p>
               ) : (
@@ -63,7 +63,7 @@ const ProfileSheet = async () => {
               )}
             </div>
             <div>
-              <span className="text-xs text-card-foreground/80">Joined On</span>
+              <span className="text-xs text-primary">Joined On</span>
               <p className="text-sm">
                 {dayjs(userInfo.createdAt).format("DD MMM YYYY hh:mm A")}
               </p>

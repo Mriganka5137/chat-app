@@ -11,6 +11,7 @@ import { useToast } from "../ui/use-toast";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import imageCompression from "browser-image-compression";
 import { useRouter } from "next/navigation";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 interface ProfilePicUploaderProps {
   profilePictureUrl: string;
@@ -120,7 +121,7 @@ const ProfilePicUploader = ({ profilePictureUrl }: ProfilePicUploaderProps) => {
       <div className=" flex flex-col items-center justify-center mt-5 gap-3">
         {profilePictureUrl ? (
           <Dialog>
-            <DialogTrigger disabled={pending}>
+            <DialogTrigger disabled={pending} className="relative group">
               <Image
                 src={profilePicUrl!}
                 width={1200}
@@ -129,6 +130,10 @@ const ProfilePicUploader = ({ profilePictureUrl }: ProfilePicUploaderProps) => {
                 className="rounded-full size-32 object-cover"
                 alt="profile picture"
               />
+              <div className="absolute w-full h-full top-0 left-0 rounded-full opacity-0 group-hover:opacity-70 bg-black flex justify-center items-center  gap-1 transition-opacity duration-500 ease-in-out">
+                <MdOutlineRemoveRedEye />
+                <span className="text-sm">View </span>
+              </div>
             </DialogTrigger>
             <DialogContent className="p-0 overflow-hidden">
               <Image
@@ -176,7 +181,7 @@ const ProfilePicUploader = ({ profilePictureUrl }: ProfilePicUploaderProps) => {
             {!file ? (
               <Label
                 htmlFor="profile-pic"
-                className="cursor-pointer hover:text-slate-400 hover:underline text-primary text-xs"
+                className="cursor-pointer text-slate-400 hover:underline  text-xs"
               >
                 Change Profile Picture
               </Label>
