@@ -4,7 +4,6 @@ export interface IUser extends Document {
   email: string;
   password?: string;
   name: string;
-  userName?: string;
   emailVerified: boolean;
   profilePictureUrl?: string;
   role: "user" | "admin";
@@ -20,10 +19,7 @@ const userSchema = new Schema<IUser>(
     name: {
       type: String,
     },
-    userName: {
-      type: String,
-      unique: true,
-    },
+
     password: {
       type: String,
     },

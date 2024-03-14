@@ -50,7 +50,9 @@ export const RegisterForm = () => {
         //   form.reset();
         // }
         if (data?.verifyEmail) {
+          form.reset();
           setVerifyEmail(true);
+          setSuccess(data.verifyEmail);
         }
         setError(data.error);
       });

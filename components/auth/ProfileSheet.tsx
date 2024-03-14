@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Sheet,
   SheetContent,
@@ -8,43 +7,39 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { getCurrentUserData } from "@/actions/user.action";
 import { GoPersonFill } from "react-icons/go";
 import Image from "next/image";
 import dayjs from "dayjs";
-import { Button } from "../ui/button";
-import { signOut } from "@/actions/auth.action";
+
 import LogoutButton from "./LogoutButton";
+
+import ProfilePicUploader from "../shared/ProfilePicUploader";
 const ProfileSheet = async () => {
   const userInfo = await getCurrentUserData();
 
   return (
     <Sheet>
       <SheetTrigger>
-        <Avatar>
-          <AvatarImage src={userInfo.profilePictureUrl} />
-          <AvatarFallback className=" bg-primary/80">
-            <GoPersonFill className="size-5 " />
-          </AvatarFallback>
-        </Avatar>
+        {userInfo.profilePictureUrl ? (
+          <Image
+            alt="Profile Picture"
+            width={1000}
+            height={1000}
+            src={userInfo.profilePictureUrl}
+            className="size-12 rounded-full object-cover
+            "
+          />
+        ) : (
+          <GoPersonFill className="size-16" />
+        )}
       </SheetTrigger>
       <SheetContent className=" flex flex-col">
         <SheetHeader className=" space-y-5 ">
           <SheetTitle className="text-3xl">Profile</SheetTitle>
         </SheetHeader>
         <div className=" flex flex-col  gap-10 flex-1">
-          <div className=" flex flex-col items-center justify-center mt-5 gap-3">
-            <Image
-              src={userInfo.profilePictureUrl}
-              width={120}
-              height={120}
-              quality={100}
-              className="rounded-full"
-              alt="profile picture"
-            />
-            <span className="text-sm">Change Profile Picture</span>
-          </div>
+          <ProfilePicUploader profilePictureUrl={userInfo.profilePictureUrl} />
           <div className=" space-y-5">
             <div>
               <span className="text-xs text-card-foreground/80">Name</span>

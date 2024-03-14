@@ -11,7 +11,17 @@ export const lucia = new Lucia(adapter, {
       secure: process.env.NODE_ENV === "production",
     },
   },
-  getUserAttributes: (attributes) => attributes,
+  getUserAttributes: (attributes) => {
+    return {
+      role: attributes.role,
+      name: attributes.name,
+      createdAt: attributes.createdAt,
+      updatedAt: attributes.updatedAt,
+      email: attributes.email,
+      emailVerified: attributes.emailVerified,
+      profilePictureUrl: attributes.profilePictureUrl ?? null,
+    };
+  },
 });
 
 export const auth = cache(async () => {
@@ -52,4 +62,10 @@ declare module "lucia" {
 
 interface DatabaseUserAttributes {
   role: "user" | "admin";
+  name: string;
+  createdAt: Date;
+  updatedAt: Date;
+  email: string;
+  emailVerified: boolean;
+  profilePictureUrl?: string;
 }
