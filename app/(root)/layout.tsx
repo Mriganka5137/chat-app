@@ -13,7 +13,7 @@ const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
   }
 
   return (
-    <div>
+    <div className="max-w-screen-4xl mx-auto h-screen">
       <Navbar />
       {children}
     </div>

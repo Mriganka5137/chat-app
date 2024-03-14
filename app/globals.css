@@ -61,4 +61,8 @@ body,
   body {
     @apply bg-background text-foreground font-spaceGrotesk;
   }
+
+  .home {
+    height: calc(100% - 80px);
+  }
 }

@@ -27,11 +27,11 @@ const ProfileSheet = async () => {
             width={1000}
             height={1000}
             src={userInfo.profilePictureUrl}
-            className="size-12 rounded-full object-cover
+            className="size-10 rounded-full object-cover
             "
           />
         ) : (
-          <GoPersonFill className="size-16" />
+          <GoPersonFill className="size-10 p-2 bg-primary rounded-full" />
         )}
       </SheetTrigger>
       <SheetContent className=" flex flex-col">

@@ -9,5 +9,9 @@ export default async function Home() {
   }
 
   const userData = await getCurrentUserData();
-  return <div className=" max-w-5xl mx-auto p-5 space-y-5">Home</div>;
+  return (
+    <div className=" max-w-screen-4xl mx-auto p-5 space-y-5 border home">
+      Home
+    </div>
+  );
 }
