@@ -1,5 +1,8 @@
 import { getCurrentUserData } from "@/actions/user.action";
+import ChatArea from "@/components/chat/ChatArea";
+import Chats from "@/components/chat/Chats";
 import { auth } from "@/lib/auth";
+import { Separator } from "@radix-ui/react-dropdown-menu";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
@@ -10,8 +13,9 @@ export default async function Home() {
 
   const userData = await getCurrentUserData();
   return (
-    <div className=" max-w-screen-4xl mx-auto p-5 space-y-5 border home">
-      Home
+    <div className=" max-w-screen-4xl mx-auto   home flex">
+      <Chats />
+      <ChatArea />
     </div>
   );
 }

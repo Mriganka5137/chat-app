@@ -117,88 +117,86 @@ const ProfilePicUploader = ({ profilePictureUrl }: ProfilePicUploaderProps) => {
   };
 
   return (
-    <>
-      <div className=" flex flex-col items-center justify-center mt-5 gap-3">
-        {profilePictureUrl ? (
-          <Dialog>
-            <DialogTrigger disabled={pending} className="relative group">
-              <Image
-                src={profilePicUrl!}
-                width={1200}
-                height={1200}
-                quality={100}
-                className="rounded-full size-32 object-cover"
-                alt="profile picture"
-              />
-              <div className="absolute w-full h-full top-0 left-0 rounded-full opacity-0 group-hover:opacity-70 bg-black flex justify-center items-center  gap-1 transition-opacity duration-500 ease-in-out">
-                <MdOutlineRemoveRedEye />
-                <span className="text-sm">View </span>
-              </div>
-            </DialogTrigger>
-            <DialogContent className="p-0 overflow-hidden">
-              <Image
-                src={profilePicUrl!}
-                width={2000}
-                height={2000}
-                quality={100}
-                className="object-contain w-full h-full"
-                alt="profile picture "
-              />
-            </DialogContent>
-          </Dialog>
-        ) : (
-          <GoPersonFill className="size-[120px] bg-primary/80 rounded-full p-5 " />
-        )}
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="file"
-            accept="image/jpeg, image/png, image/jpg"
-            placeholder="Change Profile Picture"
-            className="hidden"
-            id="profile-pic"
-            max={1}
-            onChange={handleChange}
-          />
-          <div className="flex flex-col items-center gap-3">
-            {file && (
-              <div className="flex items-center gap-3">
-                <span className="text-[10px] line-clamp-1">{file.name}</span>
-                <Button
-                  disabled={pending}
-                  size="sm"
-                  variant="ghost"
-                  className="p-0 h-0"
-                  onClick={() => {
-                    setFile(undefined);
-                    setProfilePicUrl(profilePictureUrl);
-                  }}
-                >
-                  <BsXLg className="cursor-pointer" />
-                </Button>
-              </div>
-            )}
-
-            {!file ? (
-              <Label
-                htmlFor="profile-pic"
-                className="cursor-pointer text-slate-400 hover:underline  text-xs"
-              >
-                Change Profile Picture
-              </Label>
-            ) : (
+    <div className=" flex flex-col items-center justify-center mt-5 gap-3">
+      {profilePictureUrl ? (
+        <Dialog>
+          <DialogTrigger disabled={pending} className="relative group">
+            <Image
+              src={profilePicUrl!}
+              width={1200}
+              height={1200}
+              quality={100}
+              className="rounded-full size-32 object-cover"
+              alt="profile picture"
+            />
+            <div className="absolute w-full h-full top-0 left-0 rounded-full opacity-0 group-hover:opacity-70 bg-black flex justify-center items-center  gap-1 transition-opacity duration-500 ease-in-out">
+              <MdOutlineRemoveRedEye />
+              <span className="text-sm">View </span>
+            </div>
+          </DialogTrigger>
+          <DialogContent className="p-0 overflow-hidden">
+            <Image
+              src={profilePicUrl!}
+              width={2000}
+              height={2000}
+              quality={100}
+              className="object-contain w-full h-full"
+              alt="profile picture "
+            />
+          </DialogContent>
+        </Dialog>
+      ) : (
+        <GoPersonFill className="size-[120px] bg-primary/80 rounded-full p-5 " />
+      )}
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="file"
+          accept="image/jpeg, image/png, image/jpg"
+          placeholder="Change Profile Picture"
+          className="hidden"
+          id="profile-pic"
+          max={1}
+          onChange={handleChange}
+        />
+        <div className="flex flex-col items-center gap-3">
+          {file && (
+            <div className="flex items-center gap-3">
+              <span className="text-[10px] line-clamp-1">{file.name}</span>
               <Button
-                size="sm"
-                type="submit"
-                className="w-fit"
                 disabled={pending}
+                size="sm"
+                variant="ghost"
+                className="p-0 h-0"
+                onClick={() => {
+                  setFile(undefined);
+                  setProfilePicUrl(profilePictureUrl);
+                }}
               >
-                {pending ? "Uploading..." : "Upload"}
+                <BsXLg className="cursor-pointer" />
               </Button>
-            )}
-          </div>
-        </form>
-      </div>
-    </>
+            </div>
+          )}
+
+          {!file ? (
+            <Label
+              htmlFor="profile-pic"
+              className="cursor-pointer text-slate-400 hover:underline  text-xs"
+            >
+              Change Profile Picture
+            </Label>
+          ) : (
+            <Button
+              size="sm"
+              type="submit"
+              className="w-fit"
+              disabled={pending}
+            >
+              {pending ? "Uploading..." : "Upload"}
+            </Button>
+          )}
+        </div>
+      </form>
+    </div>
   );
 };
 

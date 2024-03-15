@@ -27,7 +27,7 @@ const ProfileSheet = async () => {
             width={1000}
             height={1000}
             src={userInfo.profilePictureUrl}
-            className="size-10 rounded-full object-cover
+            className="size-6 rounded-full object-cover sm:size-7 md:size-8 lg:size-9 xl:size-10
             "
           />
         ) : (
